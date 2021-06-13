@@ -3,132 +3,6 @@
         <Popover class="relative bg-white shadow">
             <div class="max-w-7xl mx-auto px-4 sm:px-6">
                 <div class="flex justify-between items-center py-6 md:justify-start md:space-x-10">
-                    <div class="flex justify-start lg:w-0 lg:flex-1">
-                        <a href="#">
-                            <span class="sr-only">Workflow</span>
-                            <img class="h-8 w-auto sm:h-10" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="" />
-                        </a>
-                    </div>
-                    <div class="-mr-2 -my-2 md:hidden">
-                        <PopoverButton class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
-                            <span class="sr-only">Open menu</span>
-                            <MenuIcon class="h-6 w-6" aria-hidden="true" />
-                        </PopoverButton>
-                    </div>
-                    <PopoverGroup as="nav" class="hidden md:flex space-x-10">
-                        <Popover class="relative" v-slot="{ open }">
-                            <PopoverButton :class="[open ? 'text-gray-900' : 'text-gray-500', 'group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500']">
-                                <span>Solutions</span>
-                                <ChevronDownIcon :class="[open ? 'text-gray-600' : 'text-gray-400', 'ml-2 h-5 w-5 group-hover:text-gray-500']" aria-hidden="true" />
-                            </PopoverButton>
-
-                            <transition enter-active-class="transition ease-out duration-200" enter-from-class="opacity-0 translate-y-1" enter-to-class="opacity-100 translate-y-0" leave-active-class="transition ease-in duration-150" leave-from-class="opacity-100 translate-y-0" leave-to-class="opacity-0 translate-y-1">
-                                <PopoverPanel class="absolute -ml-4 mt-3 transform z-10 px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2">
-                                    <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
-                                        <div class="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
-                                            <a v-for="item in features" :key="item.name" :href="item.href" class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
-                                                <component :is="item.icon" class="flex-shrink-0 h-6 w-6 text-indigo-600" aria-hidden="true" />
-                                                <div class="ml-4">
-                                                    <p class="text-base font-medium text-gray-900">
-                                                        {{ item.name }}
-                                                    </p>
-                                                    <p class="mt-1 text-sm text-gray-500">
-                                                        {{ item.description }}
-                                                    </p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="px-5 py-5 bg-gray-50 space-y-6 sm:flex sm:space-y-0 sm:space-x-10 sm:px-8">
-                                            <div v-for="item in callsToAction" :key="item.name" class="flow-root">
-                                                <a :href="item.href" class="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-100">
-                                                    <component :is="item.icon" class="flex-shrink-0 h-6 w-6 text-gray-400" aria-hidden="true" />
-                                                    <span class="ml-3">{{ item.name }}</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </PopoverPanel>
-                            </transition>
-                        </Popover>
-
-                        <a href="#" class="text-base font-medium text-gray-500 hover:text-gray-900">
-                            Pricing
-                        </a>
-                        <a href="#" class="text-base font-medium text-gray-500 hover:text-gray-900">
-                            Docs
-                        </a>
-
-                        <Popover class="relative" v-slot="{ open }">
-                            <PopoverButton :class="[open ? 'text-gray-900' : 'text-gray-500', 'group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500']">
-                                <span>More</span>
-                                <ChevronDownIcon :class="[open ? 'text-gray-600' : 'text-gray-400', 'ml-2 h-5 w-5 group-hover:text-gray-500']" aria-hidden="true" />
-                            </PopoverButton>
-
-                            <transition enter-active-class="transition ease-out duration-200" enter-from-class="opacity-0 translate-y-1" enter-to-class="opacity-100 translate-y-0" leave-active-class="transition ease-in duration-150" leave-from-class="opacity-100 translate-y-0" leave-to-class="opacity-0 translate-y-1">
-                                <PopoverPanel class="absolute left-1/2 z-10 transform -translate-x-1/2 mt-3 px-2 w-screen max-w-md sm:px-0">
-                                    <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
-                                        <div class="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
-                                            <a v-for="item in resources" :key="item.name" :href="item.href" class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
-                                                <component :is="item.icon" class="flex-shrink-0 h-6 w-6 text-indigo-600" aria-hidden="true" />
-                                                <div class="ml-4">
-                                                    <p class="text-base font-medium text-gray-900">
-                                                        {{ item.name }}
-                                                    </p>
-                                                    <p class="mt-1 text-sm text-gray-500">
-                                                        {{ item.description }}
-                                                    </p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="px-5 py-5 bg-gray-50 sm:px-8 sm:py-8">
-                                            <div>
-                                                <h3 class="text-sm tracking-wide font-medium text-gray-500 uppercase">
-                                                    Recent Posts
-                                                </h3>
-                                                <ul class="mt-4 space-y-4">
-                                                    <li v-for="item in recentPosts" :key="item.id" class="text-base truncate">
-                                                        <a :href="item.href" class="font-medium text-gray-900 hover:text-gray-700">
-                                                            {{ item.name }}
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="mt-5 text-sm">
-                                                <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500"> View all posts <span aria-hidden="true">&rarr;</span></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </PopoverPanel>
-                            </transition>
-                        </Popover>
-                    </PopoverGroup>
-
-                    <div v-if="canLogin" class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-                        <inertia-link v-if="$page.props.user" href="/dashboard" class="text-sm text-gray-700 underline">
-                            Dashboard
-                        </inertia-link>
-
-                        <template v-else>
-                            <inertia-link :href="route('login')" class="text-sm text-gray-700 underline">
-                                Log in
-                            </inertia-link>
-
-                            <inertia-link v-if="canRegister" :href="route('register')" class="ml-4 text-sm text-gray-700 underline">
-                                Register
-                            </inertia-link>
-                        </template>
-                    </div>
-
-
-
-                    <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-                        <a href="#" class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
-                            Sign in
-                        </a>
-                        <a href="#" class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
-                            Sign up
-                        </a>
-                    </div>
                 </div>
             </div>
 
@@ -187,34 +61,38 @@
                 </PopoverPanel>
             </transition>
         </Popover>
-
         <main class="lg:relative">
             <div class="mx-auto max-w-7xl w-full pt-16 pb-20 text-center lg:py-48 lg:text-left">
                 <div class="px-4 lg:w-1/2 sm:px-8 xl:pr-16">
                     <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
-                        <span class="block xl:inline">Data to enrich your</span>
+                        <span class="block xl:inline">Welcome to my life as I know it</span>
                         {{ ' ' }}
-                        <span class="block text-indigo-600 xl:inline">online business</span>
+                        <span class="block text-indigo-600 xl:inline"></span>
                     </h1>
                     <p class="mt-3 max-w-md mx-auto text-lg text-gray-500 sm:text-xl md:mt-5 md:max-w-3xl">
-                        Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.
+                        Here you can explore our website and watch custom fan made videos. Made by Kieran Nava and
+                        Jakson Thiel. lets get to know me. I was born june 25 2010, are friendship started in 3rd Grade we started making comics that kept building are friendship.
+                        We both love marvel and DC so we decided to make it are thing. Are first series is god vs steel, so ENJOY!!! episode 1
                     </p>
-                    <div class="mt-10 sm:flex sm:justify-center lg:justify-start">
-                        <div class="rounded-md shadow">
-                            <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10">
-                                Get started
-                            </a>
-                        </div>
-                        <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
-                            <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10">
-                                Live demo
-                            </a>
-                        </div>
-                    </div>
+<!--                    <div class="mt-10 sm:flex sm:justify-center lg:justify-start">-->
+<!--                        <div class="rounded-md shadow">-->
+<!--                            <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10">-->
+<!--                                Get started-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                        <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">-->
+<!--                            <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10">-->
+<!--                                Live demo-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                    </div>-->
                 </div>
             </div>
             <div class="relative w-full h-64 sm:h-72 md:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:h-full">
-                <img class="absolute inset-0 w-full h-full object-cover" src="https://images.unsplash.com/photo-1520333789090-1afc82db536a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2102&q=80" alt="" />
+                <video class="absolute inset-0 w-full h-full object-cover" width="320" height="240" controls>
+                    <source src="/img/Project_06-061_HD_720p_mp4.mov">
+                    Your browser does not support the video tag.
+                </video>
             </div>
         </main>
     </div>
